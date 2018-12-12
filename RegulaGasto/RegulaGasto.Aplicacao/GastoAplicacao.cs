@@ -64,6 +64,16 @@ namespace RegulaGasto.Aplicacao
             }
         }
 
+        public List<Gasto> ListarporCategoria(string Categoria)
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = string.Format("SELECT * FROM GASTO WHERE Categoria LIKE '%{0}%' ", Categoria);
+                var retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
+                return TransformaReaderEmListaDeObjeto(retornoDataReader);
+            }
+        }
+
         public Gasto ListarPorId(int id)
         {
             using (contexto = new Contexto())
@@ -73,6 +83,18 @@ namespace RegulaGasto.Aplicacao
                 return TransformaReaderEmListaDeObjeto(retornoDataReader).FirstOrDefault();
             }
         }
+
+        public decimal ValorTotal()
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = ("SELECT SUM(Valor) FROM GASTO ");
+                 return contexto.ExecutaComandoComRetorno2(strQuery);
+                
+            }
+        }
+
+        
         private List<Gasto> TransformaReaderEmListaDeObjeto(SqlDataReader reader)
         {
             var gastos = new List<Gasto>();

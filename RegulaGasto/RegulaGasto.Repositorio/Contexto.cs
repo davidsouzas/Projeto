@@ -36,6 +36,11 @@ namespace RegulaGasto.Repositorio
             return cmdComando.ExecuteReader();
         }
 
+        public decimal ExecutaComandoComRetorno2(string strQuery)
+        {
+            var cmdComando = new SqlCommand(strQuery, minhaConexao);
+            return Convert.ToDecimal(cmdComando.ExecuteScalar());
+        }
         public void Dispose()
         {
             if (minhaConexao.State == ConnectionState.Open)

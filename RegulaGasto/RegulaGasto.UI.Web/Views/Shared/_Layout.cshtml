@@ -21,7 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Início", "Index", "Home")</li>*@
                     @*<li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("Lista", "Index", "Gasto")</li>
@@ -32,7 +32,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - David Souza</p>
         </footer>
     </div>

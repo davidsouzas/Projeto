@@ -4,11 +4,22 @@
     ViewBag.Title = "Lista De Gastos";
 }
 
-<h2>Listar</h2>
+<h2>Lista de Gastos</h2>
 
-<p>
-    @Html.ActionLink("Inserir Novo Gasto", "Cadastrar")
-</p>
+<table class="table">
+    <tr>
+        <td>
+            <label style="color:Brown; font-weight: bolder; background-color: Brow">Inserir Novo Gasto</label>
+            <a class="img-rounded" href='@Url.Content("~/Gasto/Cadastrar")'> <img src="~/Content/Images/Button-Add-icon.png" /></a>
+        </td>
+        <td>
+            <label style="color:Brown; font-weight: bolder; background-color: Brow">Consultar por Categoria</label>
+            <a class="img-rounded" href='@Url.Content("~/Gasto/Consultar")'> <img src="~/Content/Images/Lupa-Icon.png" /></a>
+            @*@Html.ActionLink("Inserir Novo Gasto", "Cadastrar",null, new { Style = "color:Brown; font-weight: bolder; background-color: Brow"}) <br/>*@
+            @*@Html.ActionLink("Consultar por Categoria", "Consultar", null, new { Style = "color:Brown; font-weight: bolder; background-color: Brow" })*@
+        </td>
+    </tr>
+</table>
 <table class="table">
     <tr>
         <th>
@@ -24,24 +35,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Mes)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
 
 </table>
+
+@if (ViewData["Total"] != null)
+{
+    <p>Total: @ViewData["Total"]</p>
+
+}
+

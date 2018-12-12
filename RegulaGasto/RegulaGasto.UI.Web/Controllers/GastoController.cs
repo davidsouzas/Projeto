@@ -13,9 +13,15 @@ namespace RegulaGasto.UI.Web.Controllers
         // GET: Gasto
         public ActionResult Index()
         {
+            
+           
             var appGasto = new GastoAplicacao();
-            var listadeGastos = appGasto.ListaTodos();
+            var valorTotal = appGasto.ValorTotal();
+            ViewData["Total"] = valorTotal;
+            var listadeGastos = appGasto.ListaTodos();           
             return View(listadeGastos);
+            
+
         }
 
         public ActionResult Cadastrar()
@@ -34,6 +40,29 @@ namespace RegulaGasto.UI.Web.Controllers
             }
             return View(gasto);
         }
+
+        public ActionResult Consultar(string Categoria)
+        {
+            var appGasto = new GastoAplicacao();
+            var consulta = appGasto.ListarporCategoria(Categoria);
+            if (consulta == null)
+                return HttpNotFound();
+            
+            return View(consulta);
+        }
+
+        [HttpPost, ActionName("Consultar")]
+        public ActionResult ConsultarIndex(string Categoria)
+        {
+            var appGasto = new GastoAplicacao();
+            var consulta = appGasto.ListarporCategoria(Categoria);
+            if (consulta == null)
+                return HttpNotFound();
+
+            return View(consulta);
+        }
+
+       
 
         public ActionResult Editar(int id)
         {
