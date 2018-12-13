@@ -74,6 +74,16 @@ namespace RegulaGasto.Aplicacao
             }
         }
 
+        public List<Gasto> ListarporMes(string Mes)
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = string.Format("SELECT * FROM GASTO WHERE Mes LIKE '%{0}%' ", Mes);
+                var retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
+                return TransformaReaderEmListaDeObjeto(retornoDataReader);
+            }
+        }
+
         public Gasto ListarPorId(int id)
         {
             using (contexto = new Contexto())

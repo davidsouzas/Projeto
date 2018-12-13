@@ -62,7 +62,28 @@ namespace RegulaGasto.UI.Web.Controllers
             return View(consulta);
         }
 
-       
+        public ActionResult ListarPorMes(string Mes)
+        {
+            var appGasto = new GastoAplicacao();
+            var consulta = appGasto.ListarporMes(Mes);
+            if (consulta == null)
+                return HttpNotFound();
+
+            return View(consulta);
+        }
+
+        [HttpPost, ActionName("ListarPorMes")]
+        public ActionResult ListarPorMesIndex(string Mes)
+        {
+            var appGasto = new GastoAplicacao();
+            var consulta = appGasto.ListarporMes(Mes);
+            if (consulta == null)
+                return HttpNotFound();
+
+            return View(consulta);
+        }
+
+
 
         public ActionResult Editar(int id)
         {

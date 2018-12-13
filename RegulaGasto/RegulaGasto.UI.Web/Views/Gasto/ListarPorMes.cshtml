@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RegulaGasto.Dominio.Gasto>
+
+
+@{
+    ViewBag.Title = "ListarPorMes";
+}
+
+<h2>ListarPorMes</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend></legend>
+        <div class="editor-label">
+            <label>Mes</label>
+        </div>
+        <div class="editor-field">
+            <input type="text" name="Mes" placeholder="Mes" />
+        </div>
+        <br />
+        <input type="submit" value="Consultar" />
+
+    </fieldset>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Mes)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+<div>
+    @Html.ActionLink("Retornar a Lista", "Index")
+</div>

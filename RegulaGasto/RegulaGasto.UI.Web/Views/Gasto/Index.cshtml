@@ -9,14 +9,18 @@
 <table class="table">
     <tr>
         <td>
-            <label style="color:Brown; font-weight: bolder; background-color: Brow">Inserir Novo Gasto</label>
+            <label style="color:Brown; font-weight: bolder">Inserir Novo Gasto</label>
             <a class="img-rounded" href='@Url.Content("~/Gasto/Cadastrar")'> <img src="~/Content/Images/Button-Add-icon.png" /></a>
         </td>
         <td>
-            <label style="color:Brown; font-weight: bolder; background-color: Brow">Consultar por Categoria</label>
+            <label style="color:Brown; font-weight: bolder">Consultar por Categoria</label>
             <a class="img-rounded" href='@Url.Content("~/Gasto/Consultar")'> <img src="~/Content/Images/Lupa-Icon.png" /></a>
             @*@Html.ActionLink("Inserir Novo Gasto", "Cadastrar",null, new { Style = "color:Brown; font-weight: bolder; background-color: Brow"}) <br/>*@
             @*@Html.ActionLink("Consultar por Categoria", "Consultar", null, new { Style = "color:Brown; font-weight: bolder; background-color: Brow" })*@
+        </td>
+        <td>
+            <label style="color:Brown; font-weight: bolder">Listar Por Mês</label>
+            <a class="img-rounded" href='@Url.Content("~/Gasto/ListarPorMes")'> <img src="~/Content/Images/Lupa-Icon.png" /></a>
         </td>
     </tr>
 </table>

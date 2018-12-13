@@ -175,6 +175,7 @@
     <Content Include="Views\Gasto\Detalhes.cshtml" />
     <Content Include="Views\Gasto\Excluir.cshtml" />
     <Content Include="Views\Gasto\Consultar.cshtml" />
+    <Content Include="Views\Gasto\ListarPorMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,10 +1,10 @@
 ﻿@model RegulaGasto.Dominio.Gasto
 
 @{
-    ViewBag.Title = "Cadastrar";
+    ViewBag.Title = "Novo Gasto";
 }
 
-<h2>Cadastrar</h2>
+<h2>Novo Gasto</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Gasto</h4>
+ 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
