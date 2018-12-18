@@ -62,6 +62,12 @@
 
 </table>
 
+@if (ViewData["Total"] != null)
+{
+    <p>Total: @ViewData["Total"]</p>
+
+}
+
 <div>
     @Html.ActionLink("Retornar a Lista", "Index")
 </div>

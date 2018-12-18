@@ -55,6 +55,8 @@ namespace RegulaGasto.UI.Web.Controllers
         public ActionResult ConsultarIndex(string Categoria)
         {
             var appGasto = new GastoAplicacao();
+            var valortotal = appGasto.ValorTotalPorCategoria(Categoria);
+            ViewData["Total"] = valortotal;
             var consulta = appGasto.ListarporCategoria(Categoria);
             if (consulta == null)
                 return HttpNotFound();
@@ -64,7 +66,7 @@ namespace RegulaGasto.UI.Web.Controllers
 
         public ActionResult ListarPorMes(string Mes)
         {
-            var appGasto = new GastoAplicacao();
+            var appGasto = new GastoAplicacao();          
             var consulta = appGasto.ListarporMes(Mes);
             if (consulta == null)
                 return HttpNotFound();
@@ -76,6 +78,8 @@ namespace RegulaGasto.UI.Web.Controllers
         public ActionResult ListarPorMesIndex(string Mes)
         {
             var appGasto = new GastoAplicacao();
+            var valorTotal = appGasto.ValorTotalPorMes(Mes);
+            ViewData["Total"] = valorTotal;
             var consulta = appGasto.ListarporMes(Mes);
             if (consulta == null)
                 return HttpNotFound();

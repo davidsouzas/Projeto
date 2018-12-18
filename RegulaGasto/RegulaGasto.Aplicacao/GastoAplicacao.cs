@@ -98,13 +98,33 @@ namespace RegulaGasto.Aplicacao
         {
             using (contexto = new Contexto())
             {
-                var strQuery = ("SELECT SUM(Valor) FROM GASTO ");
+                var strQuery = ("SELECT CAST(SUM(Valor) AS decimal(15,2)) FROM GASTO ");
                  return contexto.ExecutaComandoComRetorno2(strQuery);
                 
             }
         }
 
-        
+        public decimal ValorTotalPorMes(string Mes)
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = string.Format("SELECT Cast(SUM(Valor) AS decimal(15,2)) FROM GASTO WHERE Mes = '{0}' ", Mes);
+                return contexto.ExecutaComandoComRetorno2(strQuery);
+
+            }
+        }
+
+        public decimal ValorTotalPorCategoria(string Categoria)
+        {
+            using (contexto = new Contexto())
+            {
+                var strQuery = string.Format("SELECT Cast(SUM(Valor) AS decimal(15,2)) FROM GASTO WHERE Categoria = '{0}' ", Categoria);
+                return contexto.ExecutaComandoComRetorno2(strQuery);
+
+            }
+        }
+
+
         private List<Gasto> TransformaReaderEmListaDeObjeto(SqlDataReader reader)
         {
             var gastos = new List<Gasto>();

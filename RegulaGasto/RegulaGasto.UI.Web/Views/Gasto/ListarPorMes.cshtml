@@ -12,13 +12,13 @@
     <fieldset>
         <legend></legend>
         <div class="editor-label">
-            <label>Mes</label>
+            <label>Mês</label>
         </div>
         <div class="editor-field">
-            <input type="text" name="Mes" placeholder="Mes" />
+            <input type="text" name="Mes" placeholder="Mês" />
         </div>
         <br />
-        <input type="submit" value="Consultar" />
+        <input type="submit" value="Listar" />
 
     </fieldset>
 }
@@ -59,6 +59,12 @@
 
 
 </table>
+
+@if (ViewData["Total"] != null)
+{
+    <p>Total: @ViewData["Total"]</p>
+
+}
 
 <div>
     @Html.ActionLink("Retornar a Lista", "Index")
