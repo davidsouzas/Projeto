@@ -17,13 +17,15 @@
             <label>Categoria</label>
         </div>
         <div class="editor-field">
-            <input type="text" name="Categoria" placeholder="Categoria" />
+            <input type="text" name="Categoria" placeholder="Categoria" required="true" />
         </div>
         <br />
         <input type="submit" value="Consultar" />
 
     </fieldset>
 }
+@if (Model != null)
+{
 <table class="table">
     <tr>
         <th>
@@ -61,7 +63,7 @@
     
 
 </table>
-
+}
 @if (ViewData["Total"] != null)
 {
     <p>Total: @ViewData["Total"]</p>

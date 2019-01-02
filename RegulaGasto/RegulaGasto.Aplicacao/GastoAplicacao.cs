@@ -58,7 +58,7 @@ namespace RegulaGasto.Aplicacao
         {
             using (contexto = new Contexto())
             {
-                var strQuery = "SELECT * FROM GASTO ";
+                var strQuery = "SELECT * FROM GASTO ";            
                 var retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
                 return TransformaReaderEmListaDeObjeto(retornoDataReader);
             }
